@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    登录
+{% endblock %}
+{% block home_active %}
+    active
+{% endblock %}
+{% block content %}
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        {{ login_form }}
+        <button type="submit">登录</button>
+    </form>
+{% endblock %}

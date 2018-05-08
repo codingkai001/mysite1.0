@@ -1,0 +1,46 @@
+body{
+    margin-top: 70px!important;
+}
+p{
+    text-indent: 2em;
+}
+
+li{
+    margin: 5px auto;
+}
+.article-types,
+.article_date{
+    list-style: none;
+}
+
+.article-types li{
+    display: inline-block;
+}
+.article_date li{
+    display: inline;
+}
+span{
+    display: inline-block;
+}
+.detail-label{
+    font-size: 15px;
+    float: right;
+    margin: 0 10px;
+
+}
+.list-time{
+    float: left;
+    margin-left: 20px;
+}
+.read-num{
+    float: right;
+    margin-right: 20px;
+}
+.home-logo{
+    padding: auto 50px;
+}
+.home-top{
+    background-color: #dff0d8;
+    color: #3c763d;
+    font-size: 18px;
+}

@@ -1,0 +1,25 @@
+{% extends 'blog/article_list.html' %}
+{% load static %}
+{% block title %}
+    专题
+{% endblock %}
+{% block list_title %}
+    <h3>专题：<span class="label label-info">{{ label }}</span></h3>
+{% endblock %}
+{% block list %}
+    {% if count %}
+        {% for article in articles %}
+            <div class="article-item">
+                <h3><a href="{% url 'blog:article_detail' article.id %}">{{ article.article.title }}</a></h3>
+                <span class="glyphicon glyphicon-time list-time" aria-hidden="true">
+                                        &nbsp;{{ article.article.last_update_time|date:"Y-m-d" }}
+                                    </span>
+                <p>{{ article.article.content|striptags|truncatechars:120 }}</p>
+                <!--过滤HTML标签列表中只取前60个字符显示-->
+            </div>
+        {% endfor %}
+    {% else %}
+        <h3>暂无相关文章，敬请期待！</h3>
+    {% endif %}
+
+{% endblock %}

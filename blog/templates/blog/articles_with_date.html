@@ -1,0 +1,26 @@
+{% extends 'blog/article_list.html' %}
+{% load static %}
+{% block title %}
+    归档
+{% endblock %}
+{% block list_title %}
+    <h3>归档：<span class="label label-danger">{{ date }}</span></h3>
+{% endblock %}
+{% block list %}
+    {% if article_count %}
+        {% for article in articles %}
+            <div class="article-item">
+                <h3><a href="{% url 'blog:article_detail' article.id %}">{{ article.title }}</a></h3>
+                <span class="glyphicon glyphicon-time list-time" aria-hidden="true">
+                                        {{ article.last_update_time|date:"Y-m-d" }}
+                                    </span>
+                <span class="label label-primary read-num">浏览{{ article.readed_nums }}次</span>
+                <br><br>
+                <p>{{ article.content|striptags|truncatechars:120 }}</p>
+                <!--过滤HTML标签列表中只取前60个字符显示-->
+            </div>
+        {% endfor %}
+    {% else %}
+        <h3>暂无文章，敬请期待！</h3>
+    {% endif %}
+{% endblock %}
