@@ -44,3 +44,6 @@ def login(request):
     return render(request, 'login.html', context)
 
 
+def logout(request):
+    auth.logout(request)
+    return HttpResponseRedirect(reverse('home'))

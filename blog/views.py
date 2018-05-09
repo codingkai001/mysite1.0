@@ -6,6 +6,7 @@ from datetime import timedelta, datetime
 from django.core.paginator import Paginator
 from .models import Article, Category
 from comment.models import Comment
+from comment.forms import CommentForm
 
 
 def article_detail(request, article_id):
@@ -28,6 +29,10 @@ def article_detail(request, article_id):
     context['article'] = article
     # print(article.category_set.all())
     context['labels'] = article.category_set.all()
+    data = dict()
+    data['content_type'] = article_content_type.model
+    data['object_id'] = article_id
+    context['comment_form'] = CommentForm(initial=data)
     response = render(request, 'blog/article_detail.html', context)
     response.set_cookie('blog_%s_readed' % article_id, 'true', expires=datetime.now()+timedelta(seconds=60))
     return response

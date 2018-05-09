@@ -73,12 +73,10 @@
                     {% if request.user.is_authenticated %}
                         {{ request.user.username }},欢迎你
                         <div class="form-group">
-                            <form action="{% url 'comment:update_comment' %}" method="post">
+                            <form id="comment_form" action="{% url 'comment:update_comment' %}" method="post">
                                 {% csrf_token %}
-                                <textarea name="text" placeholder="说点什么吧。。。" class="form-control"></textarea>
-                                <input type="hidden" name="object_id" value="{{ article.pk }}">
-                                <input type="hidden" name="content_type" value="article">
-                                <button type="submit" class="btn btn-primary">发表评论</button>
+                                {{ comment_form }}
+                                <button type="submit" class="btn btn-primary" style="float: right;">发表评论</button>
                             </form>
                         </div>
                     {% else %}
@@ -86,7 +84,7 @@
                         <a href="{% url 'login' %}?from={{ request.get_full_path }}">登录</a>
                     {% endif %}
                 </div>
-                <div class="comment-area">
+                <div id="comment_list" class="comment-area">
                     <h3>评论列表</h3>
                     {% for comment in comments %}
                         <div class="panel panel-primary">
@@ -105,4 +103,32 @@
         </div>
 
     </div>
+    <script type="javascript" src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script type="javascript" src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+{% endblock %}
+{% block script_extend %}
+{#    <script type="text/javascript">#}
+{#        $("#comment_form").submit(function () {#}
+{#            //异步提交#}
+{#            $.ajax({#}
+{#               url: "{% url 'comment:update_comment' %}",#}
+{#                type: 'POST',#}
+{#                data: $(this).serialize(),#}
+{#                cache: false,#}
+{#                success: function (data) {#}
+{#                    console.log(data);#}
+{#                    //插入数据#}
+{#                    if(data['status']===200){#}
+{#                        var comment_html = #}
+{#                    }#}
+{#                },#}
+{#                error: function (xhr) {#}
+{#                    console.log(xhr);#}
+{#                }#}
+{#            });#}
+{##}
+{#            return false;#}
+{#        });#}
+{##}
+{#    </script>#}
 {% endblock %}
