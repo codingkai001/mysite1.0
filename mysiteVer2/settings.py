@@ -135,11 +135,14 @@ STATICFILES_DIRS = [
 ]
 STATIC_URL = '/static/'
 # 可以访问静态文件
-STATIC_ROOT = os.path.join(BASE_DIR, '/blog/static')
+# STATIC_ROOT = os.path.join(BASE_DIR, '/blog/static')
 
-# media路径
-MEDIA_URL = '/blog/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/blog/media')
+# media存储的绝对路径
+MEDIA_ROOT = 'blog/media'
+MEDIA_URL = '/media/'
+
 
 # 上传文件路径
 CKEDITOR_UPLOAD_PATH = 'upload/'
+
+APPEND_SLASH = True

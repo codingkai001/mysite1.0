@@ -27,7 +27,7 @@
                                     </span>
                                     <span class="label label-primary read-num">浏览{{ article.readed_nums }}次</span>
                                     <br><br>
-                                    <p>{{ article.content|striptags|truncatechars:120 }}</p>
+                                    <p>{{ article.content|striptags|truncatechars:120|safe }}</p>
                                     <!--过滤HTML标签列表中只取前60个字符显示-->
                                 </div>
                             {% endfor %}

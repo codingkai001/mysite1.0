@@ -16,19 +16,21 @@ Including another URLconf
 from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
-
-from django.urls import path, include, re_path
+from django.urls import path, include
+from django.views.generic import TemplateView
 from . import views
 
 
 urlpatterns = [
-    path('', views.index, name='home'),  # 相当于re_path('^$', views.index)
-    path('admin/', admin.site.urls),
-    path('blog/', include('blog.urls')),
-    path('ckeditor', include('ckeditor_uploader.urls')),
-    path('login/', views.login, name='login'),
-    path('logout/', views.logout, name='logout'),
-    path('comment', include('comment.urls')),
+    path('', TemplateView.as_view(template_name='index.html')),  # 主页
+    path('admin/', admin.site.urls),  # 后台管理&编辑
+    path('sign_up/', views.sign_up, name='sign_up'),  # 注册
+    path('sign_in/', views.sign_in, name='login'),  # 登录
+    path('sign_out/', views.sign_out, name='logout'),  # 注销
+    path('blog/', include('blog.urls')),  # 博客
+    path('comment/', include('comment.urls')),  # 评论
+    path('ckeditor/', include('ckeditor_uploader.urls')),  # 富文本编辑
+    path('about/', TemplateView.as_view(template_name='me.html')),  # 本人
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

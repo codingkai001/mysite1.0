@@ -1,46 +1,67 @@
 body{
-    margin-top: 70px!important;
+    margin: 0;
+    padding: 0;
 }
-p{
-    text-indent: 2em;
+.outer-background{
+    position: fixed;
+    /*background-color: #333;*/
+    width: 100%;
+    height: 100%;
 }
-
-li{
-    margin: 5px auto;
+.top-nav{
+    position: relative;
+    /*border: 1px solid red;*/
+    width: 60%;
+    height: 100px;
+    top: 20px;
+    margin: 0 auto;
 }
-.article-types,
-.article_date{
-    list-style: none;
-}
-
-.article-types li{
-    display: inline-block;
-}
-.article_date li{
-    display: inline;
-}
-span{
-    display: inline-block;
-}
-.detail-label{
-    font-size: 15px;
-    float: right;
-    margin: 0 10px;
-
-}
-.list-time{
+.top-list li{
     float: left;
-    margin-left: 20px;
+    color: white;
+    list-style: none;
+    line-height: 100px;
+    margin: 0 50px;
+    font-size: 25px;
 }
-.read-num{
-    float: right;
-    margin-right: 20px;
+/*.me{*/
+    /*font-size: 30px;*/
+    /*font-weight: bolder;*/
+    /*color: yellow;*/
+/*}*/
+.top-list a:hover,
+.top-list a:focus{
+    color: white;
+    padding-bottom: 5px;
+    border-bottom: 3px solid white;
+
 }
-.home-logo{
-    padding: auto 50px;
+.top-list a:link,
+.top-list a:visited{
+    color: white;
+    text-decoration: none;
 }
-.home-top{
-    background-color: #dff0d8;
-    color: #3c763d;
-    font-size: 18px;
+.home-center{
+    /*border: 1px solid red;*/
+    position: relative;
+    top: 150px;
+    margin: 0 auto;
+    width: 60%;
+    height: 250px;
+    text-align: center;
+    font-size: 35px;
+    line-height: 200px;
+    color: white;
+    background: url("../img/19931.png") no-repeat;
+}
+.foot{
+    /*border: 1px solid red;*/
+    position: relative;
+    top: 310px;
+    margin: 0 auto;
+    width: 60%;
+    height: 30px;
+    text-align: center;
+    font-size: 15px;
+    color: white;
 }

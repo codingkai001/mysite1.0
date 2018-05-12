@@ -4,24 +4,10 @@ from django.shortcuts import render_to_response, render
 from django.contrib import auth
 from django.urls import reverse
 from .forms import LoginForm
+from django.contrib.auth.models import User
 
 
-def index(request):
-    context = dict()
-    return render_to_response('index.html', context)
-
-
-def login(request):
-    # username = request.POST.get('username')
-    # password = request.POST.get('password')
-    # user = auth.authenticate(request, username=username, password=password)
-    # referer = request.META.get('HTTP_REFERER', reverse('home'))
-    # if user is not None:
-    #     auth.login(request, user)
-    #     return HttpResponseRedirect(referer)
-    # else:
-    #     return render(request, 'error.html', {'message': '用户名或密码不正确'})
-
+def sign_in(request):
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
         if login_form.is_valid():
@@ -41,9 +27,25 @@ def login(request):
 
     context = dict()
     context['login_form'] = login_form
-    return render(request, 'login.html', context)
+    return render(request, 'sign_in.html', context)
 
 
-def logout(request):
+def sign_out(request):
     auth.logout(request)
     return HttpResponseRedirect(reverse('home'))
+
+
+def sign_up(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        user_exists = User.objects.filter(username=username)
+        if user_exists:
+            return render(request, 'sign_up.html', {'error': '用户名已存在！'})
+        else:
+            new_user = User()
+            new_user.username = username
+            new_user.password = request.POST.get('password')
+            new_user.email = request.POST.get('email')
+            new_user.save()
+    else:
+        return render(request, 'sign_up.html')
