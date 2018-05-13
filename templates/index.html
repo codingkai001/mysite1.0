@@ -1,32 +1,41 @@
 {% extends 'base.html' %}
 {% load static %}
+{% block title %}
+    home
+{% endblock %}
 {% block stylesheet_extended %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/index.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
 {% endblock %}
 {% block content %}
     <div id="wrapper">
-
         <canvas id="canvasbg" width="1950px" height="800px"></canvas>
         <canvas id="canvas" width="1950px" height="800px"></canvas>
-
     </div>
     <div class="outer-background">
-            <div class="top-nav">
-                <ul class="top-list">
-                    <li class="me" style="font-size: 35px">@Coding-kai</li>
-                    <li><a href="/">Home</a></li>
-                    <li><a href="{% url 'blog:article_list' %}">Blog</a></li>
-                    <li><a href="about/">About</a></li>
-                </ul>
-            </div>
-            <div class="home-center">
-{#                Creative, More Than Create#}
-            </div>
-            <div class="foot">
-                &copy;coding-kai&nbsp;&nbsp;2018&nbsp;&nbsp;Email:codingkai001@gmail.com
-            </div>
+        <div class="top-nav">
+            <ul class="top-list">
+                <li class="me" style="font-size: 35px">@Coding-kai</li>
+                <li><a href="/">Home</a></li>
+                <li><a href="{% url 'blog:article_list' %}">Blog</a></li>
+                <li><a href="about/">About</a></li>
+            </ul>
         </div>
+{#        <div class="sign-in">#}
+{#            <ul>#}
+{#                <li><a href="{% url 'sign_in' %}">登录</a></li>#}
+{#                <li><a href="{% url 'sign_up' %}">注册</a></li>#}
+{#            </ul>#}
+{#        </div>#}
+        <a id="Login_start_" class="btn btn-danger" style="width:100px;height:40px;border-radius: 0;">登陆</a>
+		<a id="Regist_start_" class="btn btn-success" style="width:100px;height:40px;border-radius: 0;">注册</a>
+        <div class="home-center">
+            {#Creative, More Than Create#}
+        </div>
+        <div class="foot">
+            &copy;coding-kai&nbsp;&nbsp;2018&nbsp;&nbsp;Email:codingkai001@gmail.com
+        </div>
+    </div>
 
 {% endblock %}
 {% block script_extended %}

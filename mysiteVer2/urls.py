@@ -25,8 +25,8 @@ urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),  # 主页
     path('admin/', admin.site.urls),  # 后台管理&编辑
     path('sign_up/', views.sign_up, name='sign_up'),  # 注册
-    path('sign_in/', views.sign_in, name='login'),  # 登录
-    path('sign_out/', views.sign_out, name='logout'),  # 注销
+    path('sign_in/', views.sign_in, name='sign_in'),  # 登录
+    path('sign_out/', views.sign_out, name='sign_out'),  # 注销
     path('blog/', include('blog.urls')),  # 博客
     path('comment/', include('comment.urls')),  # 评论
     path('ckeditor/', include('ckeditor_uploader.urls')),  # 富文本编辑

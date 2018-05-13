@@ -1,0 +1,9 @@
+.form-border {
+    border: 2px outset red;
+    position: relative;
+    top: 100px;
+    width: 30%;
+    height: 500px;
+    margin: 0 auto;
+
+}
