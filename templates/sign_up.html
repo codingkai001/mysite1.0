@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
-    sign_up
+    sign up
 {% endblock %}
 {% block stylesheet_extended %}
     <link type="text/css" rel="stylesheet" href="{% static 'css/main.css' %}">
     <link type="text/css" rel="stylesheet" href="{% static 'css/form.css' %}">
 {% endblock %}
 {% block content %}
-    <div class="background">
-        <div class="form-border">
-
-        </div>
+    <div class="sign_in_container form-border">
+        <h3>用户注册</h3>
+        <br>
+        <hr>
+{#        <p>账号/手机号登录</p>#}
+        <form action="#" method="post" class="form-horizontal" autocomplete="off">
+            {% csrf_token %}
+            <input type="text" name="username" class="user-field" placeholder="用户名/手机号">
+            <input type="password" name="password" class="psw-field" placeholder="密码">
+            <input type="password" name="password" class="psw-field psw-again" placeholder="确认密码">
+            <input type="email" name="email" class="email" placeholder="电子邮箱地址">
+            <button type="submit" class="btn-sign-up btn btn-success btn-lg">注册</button>
+        </form>
+        <hr>
+        <a href="{% url 'sign_in' %}">已有账号？<span>立即登录</span></a>
     </div>
 {% endblock %}

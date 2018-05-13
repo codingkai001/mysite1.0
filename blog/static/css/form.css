@@ -1,9 +1,99 @@
+body{
+    background: url("../img/background.jpg") no-repeat;
+    opacity: 1.0;
+}
 .form-border {
-    border: 2px outset red;
+    /*border: 1px outset red;*/
     position: relative;
     top: 100px;
-    width: 30%;
+    width: 25%;
     height: 500px;
     margin: 0 auto;
 
+}
+.sign_in_container{
+    background-color: white;
+    opacity: 1.0;
+}
+
+.sign_in_container h3{
+    position: relative;
+    text-align: center;
+    top: 20px;
+}
+hr{
+    border: 0;
+    height: 1px;
+    background-color: gray;
+    width: 80%;
+}
+.sign_in_container p{
+    position: relative;
+    left: 30px;
+    color: dimgray;
+    font-size: 15px;
+
+}
+.user-field, .email{
+    background-color: white;
+    border: 1px solid deepskyblue;
+    width: 80%;
+    height: 40px;
+    position: relative;
+    left: 30px;
+    margin: 10px auto;
+    padding: 0 10px;
+}
+input:-webkit-autofill,
+ textarea:-webkit-autofill,
+ select:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+ }
+.psw-field{
+    background-color: transparent;
+    border: 1px solid deepskyblue;
+    width: 80%;
+    height: 40px;
+    position: relative;
+    left: 30px;
+    margin: 10px auto;
+    padding: 0 10px;
+}
+.btn-submit{
+    position: relative;
+    left: 30px;
+    margin: 10px 0;
+    border-radius: 0;
+}
+.btn-sign-up{
+    position: relative;
+    left: 30px;
+    width: 80%;
+    border-radius: 0;
+    margin: 10px 0;
+
+}
+.sign_in_container a{
+    position: relative;
+    left: 150px;
+    color: dimgray;
+    font-size: 15px;
+    text-decoration: none;
+}
+span{
+    color: forestgreen;
+    font-weight: 500;
+}
+.sign_in_container .to-sign-up{
+    position: absolute;
+    bottom: 210px;
+    float: right;
+    color: dimgray;
+    font-size: 15px;
+    text-decoration: none;
+
+}
+.to-sign-up span{
+    color: orange;
+    font-weight: 500;
 }
