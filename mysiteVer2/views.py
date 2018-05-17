@@ -39,6 +39,5 @@ def sign_up(request):
             user.email = email
             user.save()
             return HttpResponseRedirect(reverse('blog:article_list'))
-
     else:
         return render(request, 'sign_up.html')
