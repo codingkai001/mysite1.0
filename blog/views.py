@@ -60,7 +60,7 @@ def article_list(request):
     context['article_count'] = articles.count()
     # 得到按月份分类的时间列表
     context['articles_date'] = Article.objects.dates('last_update_time', 'month', 'DESC')
-    return render_to_response('blog/article_list.html', context)
+    return render(request, 'blog/article_list.html', context)
 
 
 def articles_with_type(request, label):

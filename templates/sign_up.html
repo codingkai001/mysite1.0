@@ -12,10 +12,9 @@
         <h3>用户注册</h3>
         <br>
         <hr>
-{#        <p>账号/手机号登录</p>#}
-        <form action="#" method="post" class="form-horizontal" autocomplete="off">
+        <form action="{% url 'sign_up' %}" method="post" class="form-horizontal" autocomplete="off">
             {% csrf_token %}
-            <input type="text" name="username" class="user-field" placeholder="用户名/手机号">
+            <input type="text" name="username" class="user-field" placeholder="用户名">
             <input type="password" name="password" class="psw-field" placeholder="密码">
             <input type="password" name="password" class="psw-field psw-again" placeholder="确认密码">
             <input type="email" name="email" class="email" placeholder="电子邮箱地址">
@@ -23,5 +22,8 @@
         </form>
         <hr>
         <a href="{% url 'sign_in' %}">已有账号？<span>立即登录</span></a>
+        {% if status %}
+            <P>{{ status }}</P>
+        {% endif %}
     </div>
 {% endblock %}

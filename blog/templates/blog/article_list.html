@@ -13,27 +13,33 @@
                 <div class="panel panel-success">
                     <div class="panel-heading">
                         {% block list_title %}
+                            {% if request.user.is_authenticated %}
+                                {{ request.user.username }}
+                            {% else %}
+                                <p>不存在</p>
+                            {% endif %}
                             <h3>博客列表(共有{{ article_count }}篇)</h3>
                         {% endblock %}
                     </div>
                     <div class="panel-body">
                         {% block list %}
                             {% if article_count %}
-                            {% for article in articles %}
-                                <div class="article-item">
-                                    <h3><a href="{% url 'blog:article_detail' article.id %}">{{ article.title }}</a></h3>
-                                    <span class="glyphicon glyphicon-time list-time" aria-hidden="true">
+                                {% for article in articles %}
+                                    <div class="article-item">
+                                        <h3><a href="{% url 'blog:article_detail' article.id %}">{{ article.title }}</a>
+                                        </h3>
+                                        <span class="glyphicon glyphicon-time list-time" aria-hidden="true">
                                         {{ article.last_update_time|date:"Y-m-d" }}
                                     </span>
-                                    <span class="label label-primary read-num">浏览{{ article.readed_nums }}次</span>
-                                    <br><br>
-                                    <p>{{ article.content|striptags|truncatechars:120|safe }}</p>
-                                    <!--过滤HTML标签列表中只取前60个字符显示-->
-                                </div>
-                            {% endfor %}
-                        {% else %}
-                            <h3>暂无文章，敬请期待！</h3>
-                        {% endif %}
+                                        <span class="label label-primary read-num">浏览{{ article.readed_nums }}次</span>
+                                        <br><br>
+                                        <p>{{ article.content|striptags|truncatechars:120|safe }}</p>
+                                        <!--过滤HTML标签列表中只取前60个字符显示-->
+                                    </div>
+                                {% endfor %}
+                            {% else %}
+                                <h3>暂无文章，敬请期待！</h3>
+                            {% endif %}
                         {% endblock %}
 
                     </div>
@@ -96,7 +102,8 @@
                                 <span class="glyphicon glyphicon-tags"></span>&nbsp;
                                 <li style="font-size: 18px">
                                     <a href="{% url 'blog:articles_with_type' label.type_name %}">
-                                        {{ label.type_name }}&nbsp;<span class="label label-warning">&nbsp;{{ label.count }}</span>
+                                        {{ label.type_name }}&nbsp;<span
+                                            class="label label-warning">&nbsp;{{ label.count }}</span>
                                     </a>
                                 </li>
                                 <br>
