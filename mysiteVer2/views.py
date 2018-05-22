@@ -41,3 +41,17 @@ def sign_up(request):
             return HttpResponseRedirect(reverse('blog:article_list'))
     else:
         return render(request, 'sign_up.html')
+
+
+def profile(request, username):
+    # 请求查看用户数据
+    if request.method == 'GET':
+        try:
+            user = User.objects.get(username=username)
+            return render(request, 'profile.html', {'user': user})
+        except User.DoesNotExist:
+            return HttpResponseRedirect('/blog')
+
+    # 修改用户数据
+    else:
+        pass

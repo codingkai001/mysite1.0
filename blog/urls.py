@@ -12,5 +12,4 @@ urlpatterns = [
     path('<int:article_id>', article_detail, name='article_detail'),
     path('category/<str:label>', articles_with_type, name='articles_with_type'),
     path('date/<int:year>/<int:month>', articles_with_date, name='articles_with_date'),
-
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]

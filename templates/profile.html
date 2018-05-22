@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    {{ username }}
+{% endblock %}
+{% block stylesheet_extended %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/profile.css' %}">
+{% endblock %}
+{% block content %}
+    <div class="jumbotron">
+        <h1 class="greet">欢迎您，{{ user.username }}</h1>
+        <br><br>
+        <p class="go-blog"><a class="btn btn-primary btn-lg" href="{% url 'blog:article_list' %}" role="button">前往主页</a>
+        </p>
+    </div>
+    <div class="input-group input-group-lg user-data">
+        <span class="input-group-addon" id="sizing-addon1">用户名</span>
+        <input type="text" class="form-control" value="{{ user.username }}" aria-describedby="sizing-addon1">
+    </div>
+    <br>
+    <div class="input-group input-group-lg user-data">
+        <span class="input-group-addon" id="sizing-addon1">Email</span>
+        <input type="text" class="form-control" value="{{ user.email }}" aria-describedby="sizing-addon1">
+    </div>
+    <br>
+    <div class="input-group input-group-lg user-data">
+        <span class="input-group-addon" id="sizing-addon1">用户名</span>
+        <input type="text" class="form-control" value="{{ user.phone }}" aria-describedby="sizing-addon1">
+    </div>
+
+{% endblock %}

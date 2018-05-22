@@ -20,7 +20,6 @@ from django.urls import path, include
 from django.views.generic import TemplateView
 from . import views
 
-
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),  # 主页
     path('admin/', admin.site.urls),  # 后台管理&编辑
@@ -31,6 +30,7 @@ urlpatterns = [
     path('comment/', include('comment.urls')),  # 评论
     path('ckeditor/', include('ckeditor_uploader.urls')),  # 富文本编辑
     path('about/', TemplateView.as_view(template_name='me.html')),  # 本人
+    path('profile/<str:username>/', views.profile, name='profile'),  # 用户详情页
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
