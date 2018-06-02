@@ -24,7 +24,7 @@ def update_comment(request):
     # referer = request.META.get('HTTP_REFERER', reverse('home'))
     # return HttpResponseRedirect(referer)
 
-    referer = request.META.get('HTTP_REFERER', reverse('home'))
+    referer = request.META.get('HTTP_REFERER', '/')
     comment_form = CommentForm(request.POST)
 
     if comment_form.is_valid():

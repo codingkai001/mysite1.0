@@ -21,7 +21,7 @@ def sign_in(request):
 
 def sign_out(request):
     auth.logout(request)
-    return HttpResponseRedirect(reverse('home'))
+    return HttpResponseRedirect('/')
 
 
 def sign_up(request):
@@ -38,7 +38,7 @@ def sign_up(request):
             user.set_password(password)
             user.email = email
             user.save()
-            return HttpResponseRedirect(reverse('blog:article_list'))
+            return HttpResponseRedirect('/')
     else:
         return render(request, 'sign_up.html')
 
