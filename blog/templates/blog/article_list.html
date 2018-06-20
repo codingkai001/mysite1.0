@@ -14,7 +14,12 @@
                     <div class="panel-heading">
                         {% block list_title %}
                             {% if request.user.is_authenticated %}
-                                {{ request.user.username }}
+                                <button type="button" class="btn btn-warning btn-lg" style="float: right">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    <a href="{% url 'profile' request.user.username %}"
+                                       style="font-size: 20px;text-decoration: none">{{ request.user.username }}</a>
+                                </button>
+
                             {% else %}
                                 <p>不存在</p>
                             {% endif %}

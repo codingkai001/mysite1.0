@@ -81,7 +81,8 @@ def articles_with_type(request, label):
 
 def articles_with_date(request, year, month):
     # print(year, month)
-    articles = Article.objects.filter(last_update_time__year=year, last_update_time__month=month).all()
+    # 月份过滤涉及数据库的配置
+    articles = Article.objects.filter(last_update_time__year=year)
     print(articles)
     # 将article每10个分一页
     paginator = Paginator(articles, 10)

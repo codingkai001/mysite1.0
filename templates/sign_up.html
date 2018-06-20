@@ -23,7 +23,7 @@
         <hr>
         <a href="{% url 'sign_in' %}">已有账号？<span>立即登录</span></a>
         {% if status %}
-            <P>{{ status }}</P>
+            <P style="color: red">{{ status }}</P>
         {% endif %}
     </div>
 {% endblock %}
